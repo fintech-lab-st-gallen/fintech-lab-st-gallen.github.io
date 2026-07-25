@@ -1,0 +1,1256 @@
+/* =========================================================
+   1. DESIGN TOKENS
+   Change these variables to update the site's main colours,
+   dimensions and typography in one place.
+   ========================================================= */
+:root {
+  --navy: #020c23;
+  --navy-soft: #06152f;
+  --ink: #040e27;
+  --text: #111111;
+  --muted: #5c6472;
+  --white: #ffffff;
+  --soft-white: #fbfcfe;
+  --border: #d8dadd;
+  --header-height: 104px;
+  --container: 1320px;
+  --container-wide: 1540px;
+  --radius-large: 30px;
+  --font-main: "Century Gothic", "Avenir Next", Avenir, Futura, "Trebuchet MS", Arial, sans-serif;
+}
+
+/* =========================================================
+   2. RESET / GLOBAL RULES
+   ========================================================= */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--header-height) + 18px);
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  overflow-x: hidden;
+  background: var(--white);
+  color: var(--text);
+  font-family: var(--font-main);
+  font-size: 16px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+body.menu-open {
+  overflow: hidden;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.16em;
+}
+
+button,
+a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2,
+h3 {
+  color: var(--ink);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+h2 {
+  margin-bottom: 42px;
+  font-size: clamp(3rem, 4vw, 4.8rem);
+  text-align: center;
+}
+
+section {
+  scroll-margin-top: calc(var(--header-height) + 12px);
+}
+
+.container,
+.container-wide {
+  width: min(100% - 40px, var(--container));
+  margin-inline: auto;
+}
+
+.container-wide {
+  width: min(100% - 64px, var(--container-wide));
+}
+
+.text-center {
+  text-align: center;
+}
+
+.section {
+  padding: 86px 0;
+}
+
+.section-soft {
+  background: var(--soft-white);
+}
+
+.section-intro {
+  margin-inline: auto;
+  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  line-height: 1.45;
+}
+
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 2000;
+  padding: 12px 16px;
+  transform: translateY(-160%);
+  border-radius: 6px;
+  background: var(--white);
+  color: var(--navy);
+  font-weight: 700;
+  transition: transform 180ms ease;
+}
+
+.skip-link:focus {
+  transform: translateY(0);
+}
+
+/* =========================================================
+   3. STICKY HEADER AND NAVIGATION
+   ========================================================= */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  min-height: var(--header-height);
+  background: var(--navy);
+  transition: box-shadow 180ms ease;
+}
+
+.site-header.is-scrolled {
+  box-shadow: 0 8px 25px rgb(2 12 35 / 18%);
+}
+
+.header-inner {
+  display: flex;
+  min-height: var(--header-height);
+  align-items: center;
+  justify-content: space-between;
+  gap: 34px;
+}
+
+.brand {
+  flex: 0 0 auto;
+  line-height: 0;
+}
+
+.brand img {
+  width: clamp(190px, 18vw, 255px);
+  height: auto;
+}
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  gap: clamp(36px, 5vw, 82px);
+  margin-left: auto;
+}
+
+.site-nav a {
+  position: relative;
+  color: var(--white);
+  font-size: clamp(1.15rem, 1.55vw, 1.75rem);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.site-nav a:not(.nav-join)::after {
+  position: absolute;
+  right: 0;
+  bottom: -9px;
+  left: 0;
+  height: 1px;
+  content: "";
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 180ms ease;
+}
+
+.site-nav a:hover::after,
+.site-nav a:focus-visible::after,
+.site-nav a.is-active::after {
+  transform: scaleX(1);
+}
+
+.nav-join {
+  display: inline-flex;
+  min-height: 70px;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 46px;
+  border: 2px solid var(--white);
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.nav-join:hover,
+.nav-join:focus-visible,
+.nav-join.is-active {
+  background: var(--white);
+  color: var(--navy);
+}
+
+.menu-toggle {
+  display: none;
+  width: 48px;
+  height: 48px;
+  cursor: pointer;
+  border: 0;
+  background: transparent;
+}
+
+.menu-toggle span {
+  display: block;
+  width: 29px;
+  height: 2px;
+  margin: 6px auto;
+  background: var(--white);
+  transition: transform 180ms ease, opacity 180ms ease;
+}
+
+/* =========================================================
+   4. HERO
+   The supplied image is used as a decorative background.
+   Text remains real HTML, which keeps it sharp and accessible.
+   ========================================================= */
+.hero {
+  position: relative;
+  display: grid;
+  min-height: clamp(465px, 35vw, 585px);
+  overflow: hidden;
+  align-items: center;
+  border-bottom: 1px solid #eef0f2;
+  isolation: isolate;
+}
+
+.hero-art {
+  position: absolute;
+  z-index: -2;
+  inset: 0 -140px 0 0;
+  transform: translateX(-140px);
+
+  background-image: url("assets/hero-visual-2.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  /* X = horizontal position, Y = top offset */
+  background-position: 72% 0px;
+}
+
+/* A light fade makes the title readable over every screen width. */
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  content: "";
+  background: linear-gradient(
+    90deg,
+    rgb(255 255 255 / 100%) 0%,
+    rgb(255 255 255 / 98%) 25%,
+    rgb(255 255 255 / 60%) 48%,
+    rgb(255 255 255 / 0%) 72%
+  );
+}
+
+.hero-content {
+  padding-block: 70px;
+  transform: translateX(20px);
+}
+
+.hero h1 {
+  max-width: 1160px;
+  margin-bottom: 26px;
+  font-size: clamp(3.5rem, 5.25vw, 6rem);
+  letter-spacing: -0.045em;
+}
+
+.hero p {
+  max-width: 1180px;
+  margin-bottom: 0;
+  color: var(--ink);
+  font-size: clamp(1.35rem, 2.25vw, 2.25rem);
+  font-style: italic;
+  line-height: 1.35;
+}
+
+.city-name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.university-name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.allrights-name {
+  display: inline-block;
+  white-space: nowrap;
+}
+
+
+
+@media (max-width: 600px) {
+  .hero-art {
+    /*
+      The layer fills the entire hero section.
+      No additional leftward offset is applied.
+    */
+    inset: 0;
+    transform: none;
+
+    background-image: url("assets/hero-visual-mobile.png");
+    background-repeat: no-repeat;
+
+    /*
+      The image fits the full height of the section.
+      If it is wider than the screen, the left side is cropped,
+      while the right side remains anchored to the right edge.
+    */
+    background-size: auto 100%;
+
+    /*
+      100% horizontally = the right edge of the image
+      aligns with the right edge of the hero section.
+
+      50% vertically = the image is centred vertically.
+    */
+    background-position: right 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .hero {
+    border-bottom: none;
+  }
+}
+
+/* =========================================================
+   5. ABOUT + PILLAR CARDS
+   ========================================================= */
+
+.pillars-section {
+  padding-top: 38px;
+  padding-bottom: 38px;
+}
+
+.pillars-section h2 {
+  margin-bottom: 42px;
+}
+
+.about-section {
+  padding-top: 58px;
+  padding-bottom: 68px;
+}
+
+.about-copy {
+  max-width: 1290px;
+  margin-bottom: 58px;
+  text-align: left;
+  /* Aligns the paragraph evenly along both edges */
+  text-align: justify;
+  text-justify: inter-word;
+  /* Allows the browser to hyphenate long words when necessary */
+  hyphens: auto;
+}
+
+.value-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 26px;
+}
+
+.value-card {
+  display: flex;
+  min-height: 300px;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 30px 22px 28px;
+  border: 2px solid var(--border);
+  border-radius: var(--radius-large);
+  background: var(--white);
+  text-align: center;
+}
+
+/* Card icons loaded as separate image files */
+.value-icon-image {
+  display: block;
+
+  /*
+    The icon scales responsively between 52 and 72 px.
+    On larger screens, it will be 72 px.
+  */
+  width: clamp(80px, 6vw, 105px);
+
+  /*
+    The height is calculated automatically,
+    so the SVG proportions are preserved.
+  */
+  height: auto;
+
+  /* Prevents the image from exceeding the card boundaries */
+  max-width: 100%;
+
+  margin-bottom: 25px;
+
+  /* Prevents the flex container from stretching the icon */
+  flex-shrink: 0;
+
+  /*
+    A reserved area of equal size helps
+    visually align different SVG files.
+  */
+  object-fit: contain;
+}
+
+.value-card {
+  margin: 0;
+
+  /* Text size */
+  font-size: 20px;
+
+  /* Line spacing */
+  line-height: 1.4;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  /*
+    Card height.
+    Reduce this value to make the cards shorter.
+  */
+  min-height: 270px;
+
+  /*
+    Smaller inner padding also reduces the card height.
+  */
+  padding: 28px 22px;
+
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+  border-radius: 24px;
+
+  text-align: center;
+
+  /*
+    Smooth hover animation.
+  */
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+
+  transform-origin: center;
+}
+
+/*
+  The effect applies only on devices with a pointer.
+  It will not interfere with touch controls on iPhone or iPad.
+*/
+@media (hover: hover) and (pointer: fine) {
+  .value-card:hover {
+    /*
+      The card rises slightly and becomes larger.
+    */
+    transform: translateY(0px) scale(1.075);
+
+    /*
+      A subtle shadow makes the card appear
+      to move forward.
+    */
+    box-shadow: 0 16px 32px rgba(3, 15, 40, 0.12);
+
+    border-color: #b9c0cc;
+  }
+}
+
+@media (max-width: 600px) {
+  .value-card {
+    min-height: 230px;
+    padding: 24px 20px;
+  }
+}
+
+/* =========================================================
+   6. EVENTS, PROJECTS, TEAM, JOIN
+   ========================================================= */
+.compact-section {
+  padding-block: 72px;
+}
+
+.compact-section h2,
+.join-section h2 {
+  margin-bottom: 28px;
+}
+
+.compact-section .section-intro,
+.join-section .section-intro {
+  max-width: 1100px;
+  margin-bottom: 0;
+}
+
+/* Team card grid */
+.team-grid {
+  display: grid;
+
+  /* Three equal columns in one row */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 24px;
+
+  /* Limits the width of the complete card group */
+  max-width: 1000px;
+
+  /* Centres the card group */
+  margin: 48px auto 0;
+}
+
+/* Individual team member card */
+.team-card {
+  position: relative;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  min-height: 260px;
+  padding: 32px 24px;
+
+  background-color: #ffffff;
+  border: 1px solid #d7d7d7;
+  border-radius: 24px;
+
+  text-align: center;
+
+  /* Smooth movement, scaling and shadow transition */
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+
+  transform-origin: center;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .team-card:hover {
+    z-index: 2;
+
+    /* The card becomes slightly larger and rises */
+    transform: translateY(0px) scale(1.075);
+
+    box-shadow: 0 16px 32px rgba(3, 15, 40, 0.12);
+    border-color: #b9c0cc;
+  }
+}
+
+/* Circle containing the role letter or team member initial */
+.team-initial {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 72px;
+  height: 72px;
+  margin-bottom: 24px;
+
+  border: 1px solid #071126;
+  border-radius: 50%;
+
+  color: #071126;
+  font-size: 28px;
+  font-weight: 500;
+}
+
+/* Role title */
+.team-card h3 {
+  margin: 0 0 12px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+/* Additional text */
+.team-card p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* On smartphones, the cards are arranged vertically */
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 32px;
+  }
+
+  .team-card {
+    min-height: 220px;
+    padding: 28px 20px;
+  }
+}
+
+.join-section {
+  padding: 30px 0 80px;
+}
+
+.join-section a {
+  font-style: italic;
+}
+
+/* =========================================================
+   FOOTER
+   ========================================================= */
+
+.site-footer {
+  background-color: #020b22;
+  color: #ffffff;
+
+  padding: 48px 0 16px;
+}
+
+/*
+  Main footer grid:
+  1. logo;
+  2. social media;
+  3. contact information.
+*/
+.footer-layout {
+  display: grid;
+
+  grid-template-columns:
+    minmax(210px, 1fr)
+    minmax(360px, 1.2fr)
+    minmax(280px, 1fr);
+
+  align-items: start;
+  gap: 48px;
+}
+
+/* -------------------------
+   Logo
+   ------------------------- */
+
+.footer-brand {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Keeps the logo vertically centred within the main footer area */
+  align-self: center;
+}
+
+.footer-socials,
+.footer-contact {
+  /* Both blocks begin at exactly the same vertical position */
+  align-self: start;
+
+  /* Aligns the inner content to the left */
+  text-align: left;
+}
+
+.footer-socials {
+  justify-self: center;
+}
+
+.footer-contact {
+  justify-self: end;
+}
+
+.footer-logo {
+  display: block;
+
+  /*
+    The logo size changes smoothly
+    according to the screen width.
+  */
+  width: clamp(190px, 18vw, 260px);
+  height: auto;
+
+  object-fit: contain;
+  transform: translateX(0px);
+}
+
+/* -------------------------
+   Shared footer headings
+   ------------------------- */
+
+.footer-title {
+  margin: 0 0 22px;
+
+  color: #ffffff;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.2;
+  text-align: left;
+
+  /* Slightly shifts the heading to the left */
+  transform: translateX(0px);
+}
+
+/* -------------------------
+   Social media
+   ------------------------- */
+
+.social-links {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 32px;
+}
+
+/*
+  The link acts as the complete clickable area.
+  It is slightly larger than the icon itself, making it convenient
+  for both mouse and touchscreen interaction.
+*/
+.social-link {
+  display: grid;
+  place-items: center;
+
+  width: 68px;
+  height: 68px;
+
+  color: #ffffff;
+  text-decoration: none;
+
+  border-radius: 12px;
+
+  transition:
+    transform 0.2s ease,
+    opacity 0.2s ease,
+    background-color 0.2s ease;
+
+  transform: translateX(-12px);
+}
+
+/* Image size inside the link */
+.social-link img {
+  display: block;
+
+  width: 58px;
+  height: 58px;
+
+  object-fit: contain;
+}
+
+/*
+  The effect applies only on devices
+  with a mouse or trackpad.
+*/
+@media (hover: hover) and (pointer: fine) {
+  .social-link:hover {
+    transform: translateY(0px) translateX(-10px) scale(1.06);
+
+    background-color: rgb(255 255 255 / 8%);
+  }
+}
+
+/* Visible focus outline for keyboard navigation */
+.social-link:focus-visible,
+.footer-email:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: 5px;
+}
+
+/* -------------------------
+   Contact information
+   ------------------------- */
+
+.footer-contact {
+  justify-self: end;
+
+  text-align: left;
+}
+
+.footer-email {
+  display: inline-block;
+
+  margin-bottom: 20px;
+
+  color: #ffffff;
+  font-size: 20px;
+  line-height: 1.4;
+  text-decoration: none;
+
+  overflow-wrap: anywhere;
+
+  transition: opacity 0.2s ease;
+}
+
+.footer-email:hover {
+  opacity: 0.72;
+}
+
+.footer-address {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 20px;
+  font-style: normal;
+  line-height: 1.8;
+}
+
+/* -------------------------
+   Copyright
+   ------------------------- */
+
+.footer-bottom {
+  display: flex;
+  justify-content: center;
+
+  margin-top: 24px;
+}
+
+.footer-bottom p {
+  margin: 0;
+
+  color: #ffffff;
+  font-size: 15px;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.footer-brand
+{
+  /* Moves all content in each column slightly downward */
+  transform: translateY(10px);
+}
+
+.footer-socials,
+.footer-contact {
+  /* Moves all content in each column slightly downward */
+  transform: translateY(0px);
+}
+
+/* =========================================================
+   8. TABLET LAYOUT
+   ========================================================= */
+@media (max-width: 1080px) {
+  :root {
+    --header-height: 88px;
+  }
+
+  .container-wide {
+    width: min(100% - 40px, var(--container-wide));
+  }
+
+  .site-nav {
+    gap: 30px;
+  }
+
+  .nav-join {
+    min-height: 58px;
+    padding-inline: 28px;
+  }
+
+  .value-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .value-card {
+    min-height: 260px;
+  }
+}
+
+/* =========================================================
+   9. MOBILE NAVIGATION + PHONE LAYOUT
+   ========================================================= */
+@media (max-width: 900px) {
+  :root {
+    --header-height: 76px;
+  }
+
+  .hero-content {
+    padding-block: 58px 320px;
+    text-align: center;
+
+    /* Returns the text to the exact centre on iPad and iPhone */
+    transform: none;
+  }
+
+  h2 {
+    margin-bottom: 30px;
+    font-size: clamp(2.65rem, 12vw, 3.5rem);
+  }
+
+  .section {
+    padding-block: 62px;
+  }
+
+  .container,
+  .container-wide {
+    width: min(100% - 32px, var(--container));
+  }
+
+  .brand img {
+    width: 185px;
+  }
+
+  .menu-toggle {
+    position: relative;
+    z-index: 1100;
+    display: block;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(1) {
+    transform: translateY(8px) rotate(45deg);
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-toggle[aria-expanded="true"] span:nth-child(3) {
+    transform: translateY(-8px) rotate(-45deg);
+  }
+
+  .site-nav {
+    position: fixed;
+    z-index: 1050;
+    top: var(--header-height);
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: 28px 24px 48px;
+    overflow-y: auto;
+    background: var(--navy);
+    transform: translateX(100%);
+    transition: transform 220ms ease;
+  }
+
+  .site-nav.is-open {
+    transform: translateX(0);
+  }
+
+  .site-nav a {
+    padding: 20px 8px;
+    border-bottom: 1px solid rgb(255 255 255 / 15%);
+    font-size: 1.45rem;
+    text-align: center;
+  }
+
+  .site-nav a:not(.nav-join)::after {
+    display: none;
+  }
+
+  .nav-join {
+    min-height: 62px;
+    margin-top: 28px;
+    border: 2px solid var(--white) !important;
+  }
+
+  .hero {
+    min-height: 650px;
+    align-items: start;
+  }
+
+  .hero-art {
+    background-position: 82% bottom;
+    background-size: auto 69%;
+  }
+
+  .hero::before {
+    background: linear-gradient(
+      180deg,
+      rgb(255 255 255 / 100%) 0%,
+      rgb(255 255 255 / 100%) 34%,
+      rgb(255 255 255 / 60%) 50%,
+      rgb(255 255 255 / 5%) 70%
+    );
+  }
+
+  .hero-content {
+    padding-block: 58px 320px;
+    text-align: center;
+  }
+
+  .hero h1 {
+    margin-bottom: 20px;
+    font-size: clamp(3rem, 14.5vw, 4.6rem);
+  }
+
+  .hero p {
+    font-size: clamp(1.2rem, 5.5vw, 1.65rem);
+  }
+
+  .about-copy {
+    margin-bottom: 42px;
+    text-align: left;
+  }
+
+  .value-grid,
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .value-card {
+    min-height: auto;
+    padding: 28px 24px 32px;
+  }
+
+  .section-intro {
+    font-size: clamp(1.2rem, 5.4vw, 1.55rem);
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 34px;
+  }
+
+  .footer-links {
+    min-width: 0;
+  }
+
+  .pillars-section {
+    padding-top: 48px;
+    padding-bottom: 58px;
+  }
+
+  .about-section {
+    padding-top: 48px;
+    padding-bottom: 54px;
+  }
+  
+  .pillars-section .value-grid {
+    /* Makes the card column slightly narrower on phones */
+    width: calc(100% - 24px);
+    margin-inline: auto;
+  }
+}
+
+/*
+  At widths of 1080px and below, the footer immediately
+  switches to the vertical mobile layout.
+*/
+@media (max-width: 1080px) {
+  .site-footer {
+    padding: 42px 0 18px;
+  }
+
+  .footer-layout {
+    grid-template-columns: 1fr;
+    gap: 38px;
+  }
+
+  /* Places the logo on its own row */
+  .footer-brand {
+    grid-column: auto;
+    justify-self: stretch;
+    justify-content: center;
+  }
+
+  .footer-logo {
+    width: clamp(185px, 32vw, 235px);
+  }
+
+  /* Arranges Follow Us and Contact Us vertically */
+  .footer-socials,
+  .footer-contact {
+    width: 100%;
+    justify-self: stretch;
+    text-align: center;
+  }
+
+  .footer-title {
+    margin-bottom: 18px;
+    text-align: center;
+    transform: none;
+  }
+
+  /* Centres the social media icons */
+  .social-links {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 20px;
+    transform: translateX(10px);
+  }
+
+  .social-link {
+    width: 58px;
+    height: 58px;
+  }
+
+  .social-link img {
+    width: 48px;
+    height: 48px;
+  }
+
+  .footer-email,
+  .footer-address {
+    font-size: 18px;
+  }
+
+  .footer-address {
+    line-height: 1.7;
+  }
+
+  .footer-bottom {
+    margin-top: 36px;
+  }
+
+  .footer-bottom p {
+    max-width: 310px;
+    margin-inline: auto;
+    font-size: 14px;
+  }
+
+  /*
+    On smaller screens, a slight shared downward
+    offset is sufficient.
+  */
+  .footer-brand,
+  .footer-socials,
+  .footer-contact {
+    transform: translateY(6px);
+  }
+}
+
+/* Very narrow phones. */
+@media (max-width: 390px) {
+  .brand img {
+    width: 164px;
+  }
+
+  .hero {
+    min-height: 620px;
+  }
+
+  .hero-content {
+    padding-top: 48px;
+  }
+
+  .social-links {
+    gap: 8px;
+  }
+
+  .social-link {
+    width: 53px;
+    height: 53px;
+  }
+
+  .social-link img {
+    width: 44px;
+    height: 44px;
+  }
+}
+
+@media (min-width: 1080px) {
+  .footer-socials {
+    /*
+      20px = rightward offset;
+      10px = preserves the current downward offset.
+    */
+    transform: translate(5px, 0px);
+  }
+  .footer-logo {
+  transform: translateX(10px);
+}
+}
+
+@media (min-width: 1080px) {
+  .social-links {
+    justify-content: center;
+    flex-wrap: nowrap;
+    gap: 30px;
+
+    /* Moves the icons slightly upward */
+    transform: translateY(-8px);
+  }
+}
+
+@media (min-width: 1081px) {
+  .footer-contact .footer-title {
+    /* Moves only the Contact Us heading to the left */
+    transform: translateX(-3px);
+  }
+}
+
+/*
+  Desktop hero:
+  increases the section height and shows the image
+  across its full vertical dimension.
+*/
+@media (min-width: 901px) {
+  .hero {
+    min-height: clamp(540px, 42vw, 680px);
+  }
+
+  .hero-art {
+    /*
+      Preserve the existing horizontal positioning.
+    */
+    inset: 0 -140px 0 0;
+    transform: translateX(-140px);
+
+    /*
+      The image fills the complete hero height
+      without being distorted.
+    */
+    background-size: auto 100%;
+
+    /*
+      Anchors the image to the right and bottom edges.
+    */
+    background-position: right bottom;
+    background-repeat: no-repeat;
+  }
+}
+
+
+/* Users who prefer reduced motion should not receive animated scrolling. */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>FinTech Lab St. Gallen</title>
+  <meta
+    name="description"
+    content="FinTech Lab St. Gallen brings together students, researchers and industry to explore the future of finance."
+  >
+  <meta name="theme-color" content="#020c23">
+
+  <!-- Browser tab icon. -->
+  <link rel="icon" href="assets/favicon.png" type="image/svg+xml">
+
+  <!-- The whole visual design is kept in a separate CSS file. -->
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- JavaScript is loaded after the HTML has been parsed. -->
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <!-- Accessibility: keyboard users can jump directly to the content. -->
+  <a class="skip-link" href="#main-content">Skip to content</a>
+
+  <!--
+    Sticky header.
+    All menu links point to section IDs on this same page.
+  -->
+  <header class="site-header" data-header>
+    <div class="header-inner container-wide">
+      <a class="brand" href="#home" aria-label="FinTech Lab St. Gallen — home">
+        <img
+          src="assets/fintech-lab-logo.png"
+          alt="FinTech Lab"
+          width="1026"
+          height="331"
+        >
+      </a>
+
+      <!-- Mobile hamburger button. It is hidden on desktop by CSS. -->
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-label="Open navigation"
+        aria-expanded="false"
+        aria-controls="primary-navigation"
+        data-menu-toggle
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-navigation>
+        <a href="#about">About</a>
+        <a href="#events">Events</a>
+        <a href="#projects">Projects</a>
+        <a href="#team">Team</a>
+        <a class="nav-join" href="#join">Join Us</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+        <!-- HERO / first screen -->
+    <section class="hero" id="home" aria-labelledby="hero-title">
+      <!-- Decorative artwork supplied with the project. -->
+      <div class="hero-art" aria-hidden="true"></div>
+
+      <div class="hero-content container-wide">
+        <h1 id="hero-title">
+          FinTech Lab <span class="city-name">St. Gallen</span>
+        </h1>
+
+        <p>
+          Exploring the Future of Finance at the
+          <span class="university-name">University of St. Gallen</span>
+        </p>
+      </div>
+    </section>
+
+
+    <!-- PILLARS -->
+    <section
+      class="section pillars-section"
+      id="pillars"
+      aria-labelledby="pillars-title"
+    >
+      <div class="container">
+        <div class="value-grid">
+
+          <article class="value-card">
+            <img
+              class="value-icon-image"
+              src="assets/research.svg"
+              alt=""
+              width="72"
+              height="72"
+            >
+
+            <p>
+              Investigating bottlenecks and opportunities through a multidisciplinary lens
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <img
+              class="value-icon-image"
+              src="assets/exchange.svg"
+              alt=""
+              width="72"
+              height="72"
+            >
+
+            <p>
+              Connecting students with researchers, entrepreneurs and industry experts
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <img
+              class="value-icon-image"
+              src="assets/practice.svg"
+              alt=""
+              width="72"
+              height="72"
+            >
+
+            <p>
+              Turning insights into real-world projects, solutions and venture opportunities
+            </p>
+          </article>
+
+
+          <article class="value-card">
+            <img
+              class="value-icon-image"
+              src="assets/impact.svg"
+              alt=""
+              width="72"
+              height="72"
+            >
+
+            <p>
+              Advancing the future of finance through collaboration and initiative
+            </p>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ABOUT -->
+    <section
+      class="section about-section section-soft"
+      id="about"
+      aria-labelledby="about-title"
+    >
+      <div class="container">
+        <h2 id="about-title">About</h2>
+
+        <p class="section-intro about-copy">
+          We bring together curious minds to explore the forces reshaping finance. We examine the
+          technological, economic, legal and political questions behind financial innovation,
+          connect research with practice, and create space for ideas, collaboration and ventures
+          that can shape what comes next.
+        </p>
+      </div>
+    </section>
+
+
+    <!-- EVENTS -->
+    <section
+      class="section compact-section"
+      id="events"
+      aria-labelledby="events-title"
+    >
+      <div class="container text-center">
+        <h2 id="events-title">Events</h2>
+
+        <p class="section-intro">
+          To be announced. Follow us on social media for updates!
+        </p>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+    <section class="section compact-section section-soft" id="projects" aria-labelledby="projects-title">
+      <div class="container text-center">
+        <h2 id="projects-title">Projects</h2>
+        <p class="section-intro">Apply to join an ongoing project or to start your own.</p>
+      </div>
+    </section>
+
+    <!-- TEAM -->
+    <section class="section compact-section" id="team" aria-labelledby="team-title">
+      <div class="container text-center">
+        <h2 id="team-title">Team</h2>
+
+        <p class="section-intro">
+          Meet the students building the FinTech Lab. Team profiles will be added here soon.
+        </p>
+
+        <div class="team-grid">
+          <article class="team-card">
+            <span class="team-initial" aria-hidden="true">P</span>
+            <h3>President</h3>
+            <p>Viktor Vantsev</p>
+          </article>
+
+          <article class="team-card">
+            <span class="team-initial" aria-hidden="true">V</span>
+            <h3>Vice-President</h3>
+            <p>Enrico C. Hagenbuch</p>
+          </article>
+
+          <article class="team-card">
+            <span class="team-initial" aria-hidden="true">B</span>
+            <h3>Board Member</h3>
+            <p>To be announced</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- JOIN -->
+    <section class="section join-section" id="join" aria-labelledby="join-title">
+      <div class="container text-center">
+        <h2 id="join-title">Join Us</h2>
+        <p class="section-intro">
+          Fill in the
+          <!-- Replace the placeholder URL below with the final Google Form URL. -->
+          <a href="https://forms.google.com/" target="_blank" rel="noopener noreferrer">Google form</a>
+          and we will contact you within three days.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container footer-layout">
+
+      <!-- Logo -->
+      <div class="footer-brand">
+        <img
+          class="footer-logo"
+          src="assets/fintech-lab-logo.png"
+          alt="FinTech Lab St. Gallen"
+        >
+      </div>
+
+      <!-- Social media -->
+      <div class="footer-socials">
+        <h2 class="footer-title">Follow Us</h2>
+
+        <div class="social-links">
+
+          <!-- Replace # with the actual LinkedIn URL. -->
+          <a
+            class="social-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FinTech Lab on LinkedIn"
+          >
+            <img
+              src="assets/LinkedIn.svg"
+              alt=""
+              aria-hidden="true"
+            >
+          </a>
+
+          <!-- Replace # with the actual Instagram URL. -->
+          <a
+            class="social-link"
+            href="https://www.instagram.com/fintechlab_sg/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FinTech Lab on Instagram"
+          >
+            <img
+              src="assets/Instagram.svg"
+              alt=""
+              aria-hidden="true"
+            >
+          </a>
+
+          <!-- Replace # with the actual TikTok URL. -->
+          <a
+            class="social-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FinTech Lab on TikTok"
+          >
+            <img
+              src="assets/TikTok.svg"
+              alt=""
+              aria-hidden="true"
+            >
+          </a>
+
+          <!-- Replace # with the actual Discord invite link. -->
+          <a
+            class="social-link"
+            href="#"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Join the FinTech Lab Discord"
+          >
+            <img
+              src="assets/Discord.png"
+              alt=""
+              aria-hidden="true"
+            >
+          </a>
+
+        </div>
+      </div>
+
+      <!-- Contact information -->
+      <div class="footer-contact">
+        <h2 class="footer-title">Contact Us</h2>
+
+        <a
+          class="footer-email"
+          href="mailto:fintechlab.stgallen@proton.me"
+        >
+          fintechlab.stgallen@proton.me
+        </a>
+
+      </div>
+
+    </div>
+
+    <!-- Bottom row -->
+    <div class="container footer-bottom">
+      <p>
+        © <span data-current-year>2026</span>
+        FinTech Lab St. Gallen. <span class="allrights-name">All rights reserved.</span>
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
