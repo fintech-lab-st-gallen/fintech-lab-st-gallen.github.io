@@ -320,6 +320,10 @@ section {
   white-space: nowrap;
 }
 
+.members-only {
+  display: inline-block;
+  white-space: nowrap;
+}
 
 
 @media (max-width: 600px) {
@@ -770,12 +774,47 @@ section {
   object-fit: contain;
 }
 
+.discord-members-link {
+  position: relative;
+}
+
+.discord-members-link::after {
+  position: absolute;
+  left: 8.5px;
+  bottom: -2px;
+
+  padding: 3px 6px;
+  border-radius: 8px;
+
+  content: "Private";
+  background: #ffffff;
+  color: #020c23;
+
+  font-size: 9px;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
 /*
   The effect applies only on devices
   with a mouse or trackpad.
 */
 @media (hover: hover) and (pointer: fine) {
   .social-link:hover {
+    transform: translateY(0px) translateX(-10px) scale(1.06);
+
+    background-color: rgb(255 255 255 / 8%);
+  }
+}
+
+/*
+  The effect applies only on devices
+  with a mouse or trackpad.
+*/
+@media (hover: hover) and (pointer: fine) {
+  .discord-members-link:hover {
     transform: translateY(0px) translateX(-10px) scale(1.06);
 
     background-color: rgb(255 255 255 / 8%);
@@ -1253,4 +1292,66 @@ section {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
   }
+}
+
+/* Discord members-only tooltip */
+.discord-members-link {
+  position: relative;
+}
+
+.discord-tooltip {
+  position: absolute;
+  z-index: 20;
+  bottom: calc(100% + 14px);
+  left: 50%;
+
+  width: max-content;
+  max-width: 280px;
+  padding: 10px 14px;
+
+  border: 1px solid rgb(255 255 255 / 25%);
+  border-radius: 8px;
+
+  background-color: #ffffff;
+  color: #020c23;
+
+  font-size: 13px;
+  font-weight: 500;
+  line-height: 1.4;
+  text-align: center;
+  white-space: normal;
+
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+
+  transform: translate(-50%, 6px);
+
+  transition:
+    opacity 0.18s ease,
+    visibility 0.18s ease,
+    transform 0.18s ease;
+}
+
+/* Tooltip arrow */
+.discord-tooltip::after {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+
+  width: 10px;
+  height: 10px;
+
+  content: "";
+  background-color: #ffffff;
+
+  transform: translate(-50%, -5px) rotate(45deg);
+}
+
+/* Show the message on hover and keyboard focus */
+.discord-members-link:hover .discord-tooltip,
+.discord-members-link:focus-visible .discord-tooltip {
+  opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0);
 }
