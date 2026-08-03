@@ -1,3 +1,6 @@
+
+
+
 /* =========================================================
    FinTech Lab — small enhancements for the one-page website.
    The website still remains readable if JavaScript is disabled.
@@ -50,39 +53,6 @@ updateHeaderShadow();
 window.addEventListener('scroll', updateHeaderShadow, { passive: true });
 
 /**
- * Highlight the menu item for the section currently visible.
- * IntersectionObserver is efficient and supported by modern browsers.
- */
-/**
- * Highlights the menu item corresponding to the current section.
- * If sectionId is not provided, all highlighting is removed.
- */
-function setActiveNavigation(sectionId = null) {
-  navigationLinks.forEach((link) => {
-    const isCurrent =
-      sectionId !== null &&
-      link.getAttribute('href') === `#${sectionId}`;
-
-    link.classList.toggle('is-active', isCurrent);
-  });
-}
-
-
-/**
- * No navigation item should remain active
- * when the user is at the very top of the page.
- */
-function clearNavigationAtTop() {
-  if (window.scrollY <= 100) {
-    setActiveNavigation();
-    return true;
-  }
-
-  return false;
-}
-
-
-/**
  * Highlight the navigation item corresponding to the current section.
  * If sectionId is not provided, all highlighting is removed.
  */
@@ -121,7 +91,7 @@ function updateActiveNavigation() {
 
   /*
     When the bottom of the page is reached,
-    activate Join Us explicitly.
+    activate Build With Us explicitly.
     This is useful because the final section may be too short
     to cross the normal activation line before scrolling ends.
   */
