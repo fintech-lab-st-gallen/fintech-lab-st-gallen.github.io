@@ -723,7 +723,13 @@ a.team-card {
 
 .role-grid {
   display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
+
+  /* Three equal columns for the three available roles */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  /* Keeps the three-card group centred on the page */
+  max-width: 950px;
+
   gap: 16px;
   margin: 42px auto 36px;
 }
@@ -733,7 +739,7 @@ a.team-card {
   border: 1px solid var(--border);
   border-radius: 18px;
   background: var(--white);
-  text-align: left;
+  text-align: center;
 }
 
 .role-grid h3 {
@@ -741,6 +747,7 @@ a.team-card {
   color: #08245e;
   font-size: 1.12rem;
   font-weight: 700;
+   text-align: center;
 }
 
 .role-grid p {
@@ -1594,5 +1601,13 @@ a.team-card {
 @media (hover: hover) and (pointer: fine) {
   .footer-socials .social-link:hover {
     transform: scale(1.06);
+  }
+}
+
+/* Centres the open-position card below the founding team on desktop */
+@media (min-width: 1081px) {
+  .team-card-cta {
+    grid-column: 2;
+    margin-top: 12px;
   }
 }
