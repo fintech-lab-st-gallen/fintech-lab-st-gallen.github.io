@@ -594,23 +594,18 @@ section {
   margin-bottom: 0;
 }
 
-/* Team card grid */
 .team-grid {
   display: grid;
 
-  /* Three equal columns in one row */
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Two large team cards per row */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
 
-  gap: 24px;
+  max-width: 980px;
+  gap: 28px;
 
-  /* Limits the width of the complete card group */
-  max-width: 1000px;
-
-  /* Centres the card group */
   margin: 48px auto 0;
 }
 
-/* Individual team member card */
 .team-card {
   position: relative;
 
@@ -619,8 +614,9 @@ section {
   align-items: center;
   justify-content: center;
 
-  min-height: 260px;
-  padding: 32px 24px;
+  /* Larger cards provide enough space for photographs */
+  min-height: 390px;
+  padding: 32px 28px;
 
   background-color: #ffffff;
   border: 1px solid #d7d7d7;
@@ -628,7 +624,6 @@ section {
 
   text-align: center;
 
-  /* Smooth movement, scaling and shadow transition */
   transition:
     transform 0.22s ease,
     box-shadow 0.22s ease,
@@ -642,7 +637,30 @@ a.team-card {
   text-decoration: none;
 }
 
+.team-photo {
+  display: block;
+
+  width: 220px;
+  height: 220px;
+
+  margin-bottom: 28px;
+
+  border-radius: 50%;
+
+  object-fit: cover;
+  object-position: center;
+}
+
 .team-card-cta {
+  /* Places the application card on its own row */
+  grid-column: 1 / -1;
+
+  /* Keeps the card the same width as one team member card */
+  width: calc((100% - 28px) / 2);
+
+  justify-self: center;
+
+  margin-top: 14px;
   border-color: #1747be;
   background: linear-gradient(145deg, #f7faff 0%, #edf3ff 100%);
 }
@@ -718,7 +736,7 @@ a.team-card {
 }
 
 .join-section {
-  padding: 70px 0 82px;
+  padding: 20px 0 82px;
 }
 
 .role-grid {
@@ -893,7 +911,7 @@ a.team-card {
   align-items: center;
   flex-wrap: wrap;
 
-  gap: 32px;
+  gap: 20px;
 }
 
 /*
@@ -1604,10 +1622,52 @@ a.team-card {
   }
 }
 
-/* Centres the open-position card below the founding team on desktop */
-@media (min-width: 1081px) {
-  .team-card-cta {
-    grid-column: 2;
-    margin-top: 12px;
+
+
+
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    margin-top: 32px;
   }
+
+  .team-card {
+    min-height: 330px;
+    padding: 28px 20px;
+  }
+
+  .team-photo {
+    width: 145px;
+    height: 145px;
+  }
+
+  .team-card-cta {
+    grid-column: auto;
+    width: 100%;
+    margin-top: 8px;
+  }
+}
+
+/* Centres the application card below the two-column team grid */
+.team-card-cta {
+  grid-column: 1 / -1;
+
+  /* Makes the CTA as wide as one regular team card */
+  width: calc((100% - 28px) / 2);
+
+  justify-self: center;
+  margin-top: 14px;
+}
+
+/* Centres LinkedIn and Instagram as one group */
+.footer-socials .social-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 5px;
+
+  flex-wrap: nowrap;
+  transform: none;
 }
