@@ -2257,4 +2257,49 @@ a.team-card {
   }
 }
 
+/* =========================================================
+   MOBILE PARTNERS LAYOUT FIX
+   ========================================================= */
 
+@media (max-width: 700px) {
+  .partner-grid {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .partner-card {
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    grid-template-columns: minmax(0, 1fr);
+
+    gap: 28px;
+
+    padding: 30px 24px;
+
+    text-align: center;
+  }
+
+  .partner-logo-wrap,
+  .partner-content {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .partner-logo {
+    width: 100%;
+    max-width: 240px;
+
+    margin-inline: auto;
+  }
+
+  .partner-content {
+    text-align: center;
+  }
+
+  .partner-content h3,
+  .partner-content p {
+    overflow-wrap: anywhere;
+  }
+}
