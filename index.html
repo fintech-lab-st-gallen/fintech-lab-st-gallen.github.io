@@ -4,33 +4,85 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>FinTech Lab St. Gallen</title>
+  <title>FinTech Lab St. Gallen | Financial Technology at HSG</title>
+
   <meta
     name="description"
-    content="FinTech Lab St. Gallen is a student-led founding initiative building an interdisciplinary community around the future of finance."
+    content="Student association at the University of St. Gallen exploring financial technology, digital assets, AI in finance, open finance and financial regulation."
   >
+
   <meta name="theme-color" content="#020c23">
 
+  <!-- Social sharing metadata. -->
+  <meta
+    property="og:title"
+    content="FinTech Lab St. Gallen | Financial Technology at HSG"
+  >
+
+  <meta
+    property="og:description"
+    content="Student association at the University of St. Gallen exploring financial technology, digital assets, AI in finance, open finance and financial regulation."
+  >
+
+  <meta property="og:type" content="website">
+
+  <meta
+    property="og:url"
+    content="https://fintech-lab-st-gallen.github.io/"
+  >
+
+  <meta
+    property="og:image"
+    content="https://fintech-lab-st-gallen.github.io/assets/hero-visual-2.png"
+  >
+
+  <meta name="twitter:card" content="summary_large_image">
+
+  <meta
+    name="twitter:title"
+    content="FinTech Lab St. Gallen | Financial Technology at HSG"
+  >
+
+  <meta
+    name="twitter:description"
+    content="Student association at the University of St. Gallen exploring financial technology, digital assets, AI in finance, open finance and financial regulation."
+  >
+
+  <meta
+    name="twitter:image"
+    content="https://fintech-lab-st-gallen.github.io/assets/hero-visual-2.png"
+  >
+
   <!-- Browser tab icon. -->
-  <link rel="icon" href="assets/favicon.png" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon.png" type="image/png">
 
   <!-- The whole visual design is kept in a separate CSS file. -->
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="styles.css?v=20260827-2">
 
   <!-- JavaScript is loaded after the HTML has been parsed. -->
-  <script src="script.js" defer></script>
+  <script src="script.js?v=20260827-2" defer></script>
 </head>
-<body>
-  <!-- Accessibility: keyboard users can jump directly to the content. -->
-  <a class="skip-link" href="#main-content">Skip to content</a>
 
-  <!--
-    Sticky header.
-    All menu links point to section IDs on this same page.
-  -->
+<body>
+
+  <!-- Accessibility: keyboard users can jump directly to the content. -->
+  <a class="skip-link" href="#main-content">
+    Skip to content
+  </a>
+
+
+  <!-- =========================================================
+       HEADER
+       ========================================================= -->
+
   <header class="site-header" data-header>
     <div class="header-inner container-wide">
-      <a class="brand" href="#home" aria-label="FinTech Lab St. Gallen — home">
+
+      <a
+        class="brand"
+        href="#home"
+        aria-label="FinTech Lab St. Gallen — home"
+      >
         <img
           src="assets/fintech-lab-logo.png"
           alt="FinTech Lab"
@@ -39,7 +91,8 @@
         >
       </a>
 
-      <!-- Mobile hamburger button. It is hidden on desktop by CSS. -->
+
+      <!-- Mobile hamburger button. -->
       <button
         class="menu-toggle"
         type="button"
@@ -53,47 +106,84 @@
         <span></span>
       </button>
 
-      <nav class="site-nav" id="primary-navigation" aria-label="Primary navigation" data-navigation>
+
+      <!-- Primary navigation. -->
+      <nav
+        class="site-nav"
+        id="primary-navigation"
+        aria-label="Primary navigation"
+        data-navigation
+      >
         <a href="#about">About</a>
         <a href="#events">Events</a>
         <a href="#projects">Projects</a>
+        <a href="#partners">Partners</a>
         <a href="#team">Team</a>
         <a class="nav-join" href="#join">Join Us</a>
       </nav>
+
     </div>
   </header>
 
+
   <main id="main-content">
-        <!-- HERO / first screen -->
-    <section class="hero" id="home" aria-labelledby="hero-title">
-      <!-- Decorative artwork supplied with the project. -->
+
+
+    <!-- =========================================================
+         HERO
+         ========================================================= -->
+
+    <section
+      class="hero"
+      id="home"
+      aria-labelledby="hero-title"
+    >
+
+      <!-- Decorative artwork. -->
       <div class="hero-art" aria-hidden="true"></div>
 
+
       <div class="hero-content container-wide">
-        <p class="initiative-status">Student Association <span aria-hidden="true">&middot;</span> Applications open</p>
+
+        <p class="initiative-status">
+          Student Association
+          <span aria-hidden="true">&middot;</span>
+          Applications open
+        </p>
+
 
         <h1 id="hero-title">
-          FinTech Lab <span class="city-name">St. Gallen</span>
+          FinTech Lab
+          <span class="city-name">St. Gallen</span>
         </h1>
 
+
         <p class="hero-tagline">
-          Exploring the Future of Finance at the University of St. Gallen
+          Exploring Financial Technology at the University of St. Gallen.
         </p>
 
       </div>
+
     </section>
 
 
-    <!-- PILLARS -->
+    <!-- =========================================================
+         PILLARS
+         ========================================================= -->
+
     <section
       class="section pillars-section"
       id="pillars"
       aria-labelledby="pillars-title"
     >
+
       <div class="container">
+
         <div class="value-grid">
 
+
           <article class="value-card">
+
             <img
               class="value-icon-image"
               src="assets/research.svg"
@@ -105,10 +195,12 @@
             <p>
               Investigating bottlenecks and opportunities through a multidisciplinary lens
             </p>
+
           </article>
 
 
           <article class="value-card">
+
             <img
               class="value-icon-image"
               src="assets/exchange.svg"
@@ -120,10 +212,12 @@
             <p>
               Connecting students with researchers, entrepreneurs and industry experts
             </p>
+
           </article>
 
 
           <article class="value-card">
+
             <img
               class="value-icon-image"
               src="assets/practice.svg"
@@ -135,10 +229,12 @@
             <p>
               Turning insights into real-world projects, solutions and venture opportunities
             </p>
+
           </article>
 
 
           <article class="value-card">
+
             <img
               class="value-icon-image"
               src="assets/impact.svg"
@@ -148,186 +244,586 @@
             >
 
             <p>
-              Advancing the future of finance through collaboration and initiative
+              Advancing financial innovation through collaboration and initiative
             </p>
+
           </article>
 
+
         </div>
+
       </div>
+
     </section>
 
 
-    <!-- ABOUT -->
+    <!-- =========================================================
+         ABOUT
+         ========================================================= -->
+
     <section
       class="section about-section section-soft"
       id="about"
       aria-labelledby="about-title"
     >
+
       <div class="container">
-        <h2 id="about-title">About</h2>
+
+        <h2 id="about-title">
+          About
+        </h2>
+
 
         <p class="section-intro about-copy">
-          We bring together curious minds to explore the forces reshaping finance. We examine the
-          technological, economic, legal and political questions behind financial innovation,
-          connect research with practice, and create space for ideas, collaboration and ventures
-          that can shape what comes next.
+          We bring together students, researchers and practitioners to explore how technology is
+          reshaping finance. We examine the technological, economic, entrepreneurial, legal and
+          policy dimensions of financial innovation, connect research with practice, and create
+          space for ideas, collaboration and ventures.
         </p>
+
       </div>
+
     </section>
 
 
-    <!-- TOPICS -->
-    <section class="section topics-section" id="topics" aria-labelledby="topics-title">
-      <div class="container">
-        <p class="section-kicker">What we explore</p>
-        <h2 id="topics-title">The Future of Finance</h2>
+    <!-- =========================================================
+         TOPICS
+         ========================================================= -->
 
-        <div class="topic-list" aria-label="FinTech Lab focus areas">
-          <span>Stablecoins &amp; CBDC</span>
-          <span>Blockchain &amp; Tokenised Markets</span>
-          <span>AI in Finance &amp; Robo-Advisors</span>
-          <span>Neobanking, Payments &amp; Open Finance</span>
-          <span>WealthTech &amp; InsurTech</span>
-          <span>RegTech, Digital Identity &amp; Compliance</span>
-          <span>Financial Law, Policy &amp; Regulation</span>
-          <span>Cybersecurity &amp; Resilience</span>
-        </div>
-      </div>
-    </section>
-
-
-    <!-- EVENTS -->
     <section
-      class="section compact-section"
+      class="section topics-section"
+      id="topics"
+      aria-labelledby="topics-title"
+    >
+
+      <div class="container">
+
+        <p class="section-kicker">
+          What we explore
+        </p>
+
+
+        <h2 id="topics-title">
+          Financial Technology
+        </h2>
+
+
+        <div
+          class="topic-list"
+          aria-label="FinTech Lab focus areas"
+        >
+
+          <span>
+            Stablecoins &amp; CBDC
+          </span>
+
+          <span>
+            Blockchain &amp; Tokenised Markets
+          </span>
+
+          <span>
+            AI in Finance &amp; Robo-Advisors
+          </span>
+
+          <span>
+            Neobanking, Payments &amp; Open Finance
+          </span>
+
+          <span>
+            WealthTech &amp; InsurTech
+          </span>
+
+          <span>
+            RegTech, Digital Identity &amp; Compliance
+          </span>
+
+          <span>
+            Financial Law, Policy &amp; Regulation
+          </span>
+
+          <span>
+            Cybersecurity &amp; Resilience
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+     EVENTS
+     ========================================================= -->
+
+    <section
+      class="section events-section"
       id="events"
       aria-labelledby="events-title"
     >
-      <div class="container text-center">
-        <p class="section-kicker">Create the programme</p>
-        <h2 id="events-title">Shape Our First Events</h2>
+      <div class="container">
 
-        <p class="section-intro">
-          Help us define the first talks, workshops and roundtables. Suggest a topic, speaker or
-          format — or join the organising team.
-        </p>
+        <h2 id="events-title">
+          Events
+        </h2>
+
+
+        <div class="featured-event">
+
+          <!-- Event poster -->
+          <div class="event-poster-wrap">
+
+            <img
+              class="event-poster"
+              src="assets/cv-summit-community-partner.png"
+              alt="FinTech Lab St. Gallen Community Partner of CV Summit 2026"
+            >
+
+          </div>
+
+
+          <!-- Event information -->
+          <div class="event-content">
+
+            <p class="section-kicker event-kicker">
+              Upcoming Event
+            </p>
+
+            <h3>
+              CV Summit 2026
+            </h3>
+
+            <p class="event-date">
+              29–30 September 2026
+              <span aria-hidden="true">&middot;</span>
+              Kongresshaus Zurich
+            </p>
+
+            <p class="event-description">
+              FinTech Lab St. Gallen is a Community Partner of CV Summit 2026,
+              bringing together 3,000+ participants across institutional digital assets,
+              AI, finance and technology.
+            </p>
+
+
+            <div
+              class="event-actions"
+              aria-label="CV Summit 2026 ticket options"
+            >
+
+              <a
+                class="event-button event-button-primary"
+                href="https://form.typeform.com/to/mNjCt99H"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Apply for a Student Pass
+              </a>
+
+              <a
+                class="event-button event-button-secondary"
+                href="https://luma.com/cvsummit2026"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Get 20% Off
+              </a>
+
+            </div>
+
+
+            <p class="event-code">
+              Community code:
+              <strong>FINTECHLABSG_20</strong>
+            </p>
+
+          </div>
+
+        </div>
+
       </div>
     </section>
+    <!-- =========================================================
+         PROJECTS
+         ========================================================= -->
 
-    <!-- PROJECTS -->
-    <section class="section compact-section section-soft" id="projects" aria-labelledby="projects-title">
+    <section
+      class="section compact-section section-soft"
+      id="projects"
+      aria-labelledby="projects-title"
+    >
+
       <div class="container text-center">
-        <p class="section-kicker">Turn ideas into action</p>
-        <h2 id="projects-title">Build the First Projects</h2>
+
+        <p class="section-kicker">
+          Turn ideas into action
+        </p>
+
+
+        <h2 id="projects-title">
+          Build the First Projects
+        </h2>
+
+
         <p class="section-intro">
           Propose a concrete FinTech question, join a project team or help turn an idea into a
           research brief, prototype or industry collaboration.
         </p>
+
       </div>
+
     </section>
 
-    <!-- TEAM -->
-    <section class="section compact-section" id="team" aria-labelledby="team-title">
+
+    <!-- =========================================================
+         PARTNERS
+         ========================================================= -->
+
+    <section
+      class="section partners-section"
+      id="partners"
+      aria-labelledby="partners-title"
+    >
+
       <div class="container text-center">
-        <p class="section-kicker">Founding team</p>
-        <h2 id="team-title">Meet the students building FinTech Lab — and become one of them.</h2>
+
+        <h2 id="partners-title">
+          Partners
+        </h2>
+
+
+        <div class="partner-grid">
+
+          <a
+            class="partner-card"
+            href="https://www.cvsummit.ch/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="CV Summit 2026 website"
+          >
+
+            <div class="partner-logo-wrap">
+
+              <img
+                class="partner-logo"
+                src="assets/CV Summit.png"
+                alt="CV Summit"
+              >
+
+            </div>
+
+
+            <div class="partner-content">
+
+              <p class="partner-type">
+                Community Partner
+              </p>
+
+
+              <h3>
+                CV Summit 2026
+              </h3>
+
+
+              <p>
+                29–30 September 2026
+                &middot;
+                Kongresshaus Zurich
+              </p>
+
+            </div>
+
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- =========================================================
+         TEAM
+         ========================================================= -->
+
+    <section
+      class="section compact-section"
+      id="team"
+      aria-labelledby="team-title"
+    >
+
+      <div class="container text-center">
+
+        <p class="section-kicker">
+          Founding team
+        </p>
+
+
+        <h2 id="team-title">
+          Meet the students building FinTech Lab — and join the community.
+        </h2>
+
+
         <div class="team-grid">
 
-          <a class="team-card" href="https://www.linkedin.com/in/viktor-vantsev/">
+
+          <!-- Viktor -->
+          <a
+            class="team-card"
+            href="https://www.linkedin.com/in/viktor-vantsev/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
             <img
               class="team-photo"
               src="assets/Viktor.png"
               alt="Viktor Vantsev"
             >
-            <h3>President</h3>
-            <p>Viktor Vantsev</p>
+
+            <h3>
+              President
+            </h3>
+
+            <p>
+              Viktor Vantsev
+            </p>
+
           </a>
 
-          <a class="team-card" href="https://www.linkedin.com/in/enrico-carlo-hagenbuch-3b745224a/">
+
+          <!-- Enrico -->
+          <a
+            class="team-card"
+            href="https://www.linkedin.com/in/enrico-carlo-hagenbuch-3b745224a/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
             <img
               class="team-photo"
               src="assets/Enrico.jpeg"
               alt="Enrico C. Hagenbuch"
             >
-            <h3>Vice-President</h3>
-            <p>Enrico C. Hagenbuch</p>
+
+            <h3>
+              Vice-President
+            </h3>
+
+            <p>
+              Enrico C. Hagenbuch
+            </p>
+
           </a>
 
-          <a class="team-card" href="https://www.linkedin.com/in/michelle-koller-1a573b229/">
+
+          <!-- Michelle -->
+          <a
+            class="team-card"
+            href="https://www.linkedin.com/in/michelle-koller-1a573b229/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
             <img
               class="team-photo"
               src="assets/Michelle.jpeg"
               alt="Michelle Koller"
             >
-            <h3>Head of Legal</h3>
-            <p>Michelle Koller</p>
+
+            <h3>
+              Head of Legal
+            </h3>
+
+            <p>
+              Michelle Koller
+            </p>
+
           </a>
 
-          <!-- Add the fourth team member here -->
-          <a class="team-card" href="https://www.linkedin.com/in/jamiegruber/">
+
+          <!-- Jamie -->
+          <a
+            class="team-card"
+            href="https://www.linkedin.com/in/jamiegruber/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
             <img
               class="team-photo"
               src="assets/Jamie.png"
               alt="Jamie T. Gruber"
             >
-            <h3>Head of Events</h3>
-            <p>Jamie T. Gruber</p>
+
+            <h3>
+              Head of Events
+            </h3>
+
+            <p>
+              Jamie T. Gruber
+            </p>
+
           </a>
 
-          <a class="team-card team-card-cta" href="#join">
-            <span class="team-initial" aria-hidden="true">+</span>
-            <h3>Supporters, Members &amp; Project Leads</h3>
-            <p>Applications open</p>
+
+          <!-- Join the community card -->
+          <a
+            class="team-card team-card-cta"
+            href="#join"
+          >
+
+            <span
+              class="team-initial"
+              aria-hidden="true"
+            >
+              +
+            </span>
+
+            <h3>
+              Supporters, Members &amp; Project Leads
+            </h3>
+
+            <p>
+              Applications open
+            </p>
+
           </a>
+
 
         </div>
-              
+
       </div>
+
     </section>
 
-    <!-- JOIN -->
-    <section class="section join-section" id="join" aria-labelledby="join-title">
+
+    <!-- =========================================================
+         JOIN
+         ========================================================= -->
+
+    <section
+      class="section join-section"
+      id="join"
+      aria-labelledby="join-title"
+    >
+
       <div class="container text-center">
-        <p class="section-kicker">Applications open</p>
-        <h2 id="join-title">Join Us</h2>
+
+        <p class="section-kicker">
+          Applications open
+        </p>
+
+
+        <h2 id="join-title">
+          Join Us
+        </h2>
+
+
         <p class="section-intro">
           Choose how you would like to contribute and help shape the initiative from the beginning.
         </p>
 
-        <div class="role-grid" aria-label="Ways to contribute">
-          <article><h3>Supporter</h3><p>Become a part of the community and follow the founding journey.</p></article>
-          <article><h3>Member</h3><p>Help to organise events, research, partnerships or community building.</p></article>
-          <article><h3>Project Lead</h3><p>Build and lead a focused project or workstream.</p></article>
+
+        <div
+          class="role-grid"
+          aria-label="Ways to contribute"
+        >
+
+          <article>
+
+            <h3>
+              Supporter
+            </h3>
+
+            <p>
+              Become a part of the community and follow the founding journey.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <h3>
+              Member
+            </h3>
+
+            <p>
+              Help to organise events, research, partnerships or community building.
+            </p>
+
+          </article>
+
+
+          <article>
+
+            <h3>
+              Project Lead
+            </h3>
+
+            <p>
+              Build and lead a focused project or workstream.
+            </p>
+
+          </article>
+
         </div>
 
-        <!-- Replace the placeholder URL below with the final Google Form URL. -->
-        <a class="primary-cta" href="https://docs.google.com/forms/d/e/1FAIpQLSfWV9HfOXLuznZ2371_ldCPjE8yqUjRHFs_Kk_BMmRolTjKCQ/viewform?usp=preview" target="_blank" rel="noopener noreferrer">
+
+        <a
+          class="primary-cta"
+          href="https://docs.google.com/forms/d/e/1FAIpQLSfWV9HfOXLuznZ2371_ldCPjE8yqUjRHFs_Kk_BMmRolTjKCQ/viewform?usp=preview"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Submit an expression of interest
         </a>
 
-        <p class="review-note">We review expressions of interest on a rolling basis.</p>
+
+        <p class="review-note">
+          We review expressions of interest on a rolling basis.
+        </p>
+
       </div>
+
     </section>
+
+
   </main>
 
-  <!-- FOOTER -->
+
+  <!-- =========================================================
+       FOOTER
+       ========================================================= -->
+
   <footer class="site-footer">
+
     <div class="container footer-layout">
+
 
       <!-- Logo -->
       <div class="footer-brand">
+
         <img
           class="footer-logo"
           src="assets/fintech-lab-logo.png"
           alt="FinTech Lab St. Gallen"
         >
+
       </div>
+
 
       <!-- Social media -->
       <div class="footer-socials">
-        <div class="footer-socials">
-          <h2 class="footer-title">Follow Us</h2>
 
-          <div class="social-links">
+        <h2 class="footer-title">
+          Follow Us
+        </h2>
+
+
+        <div class="social-links">
+
 
           <!-- LinkedIn -->
           <a
@@ -337,12 +833,15 @@
             rel="noopener noreferrer"
             aria-label="FinTech Lab St. Gallen on LinkedIn"
           >
+
             <img
               src="assets/LinkedIn.svg"
-              alt="LinkedIn"
+              alt=""
               aria-hidden="true"
             >
+
           </a>
+
 
           <!-- Instagram -->
           <a
@@ -352,19 +851,46 @@
             rel="noopener noreferrer"
             aria-label="FinTech Lab St. Gallen on Instagram"
           >
+
             <img
               src="assets/Instagram.svg"
-              alt="Instagram"
+              alt=""
               aria-hidden="true"
             >
+
           </a>
+
+
+          <!-- X -->
+          <a
+            class="social-link"
+            href="https://x.com/FinTechLabSG"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="FinTech Lab St. Gallen on X"
+          >
+
+            <img
+              src="assets/X.svg"
+              alt=""
+              aria-hidden="true"
+            >
+
+          </a>
+
+
         </div>
-        </div>
+
       </div>
+
 
       <!-- Contact information -->
       <div class="footer-contact">
-        <h2 class="footer-title">Contact Us</h2>
+
+        <h2 class="footer-title">
+          Contact Us
+        </h2>
+
 
         <a
           class="footer-email"
@@ -375,15 +901,25 @@
 
       </div>
 
+
     </div>
+
 
     <!-- Bottom row -->
     <div class="container footer-bottom">
+
       <p>
         © <span data-current-year>2026</span>
-        FinTech Lab St. Gallen. <span class="allrights-name">All rights reserved.</span>
+        FinTech Lab St. Gallen.
+        <span class="allrights-name">
+          All rights reserved.
+        </span>
       </p>
+
     </div>
+
   </footer>
+
+
 </body>
 </html>

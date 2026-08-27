@@ -174,7 +174,10 @@ section {
 .site-nav {
   display: flex;
   align-items: center;
-  gap: clamp(36px, 5vw, 82px);
+
+  /* Slightly smaller spacing leaves enough room for Partners. */
+  gap: clamp(24px, 3.5vw, 60px);
+
   margin-left: auto;
 }
 
@@ -1660,14 +1663,598 @@ a.team-card {
   margin-top: 14px;
 }
 
-/* Centres LinkedIn and Instagram as one group */
-.footer-socials .social-links {
+/* =========================================================
+   10. FEATURED EVENT / COMMUNITY PARTNERSHIP
+   ========================================================= */
+
+.events-section {
+  padding-block: 78px;
+  background: var(--white);
+}
+
+.event-feature {
+  display: grid;
+  grid-template-columns: minmax(280px, 0.8fr) minmax(0, 1.2fr);
+  align-items: center;
+  gap: clamp(46px, 6vw, 86px);
+
+  max-width: 1180px;
+  margin-inline: auto;
+}
+
+.event-visual {
   display: flex;
+  justify-content: center;
+}
+
+.event-visual img {
+  display: block;
+
+  width: min(100%, 390px);
+  height: auto;
+
+  border-radius: 22px;
+  box-shadow: 0 18px 46px rgb(2 12 35 / 14%);
+}
+
+.event-copy {
+  text-align: left;
+}
+
+.event-copy .section-kicker {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.event-copy h2 {
+  margin-bottom: 18px;
+  text-align: left;
+}
+
+.event-meta {
+  margin-bottom: 22px;
+
+  color: #08245e;
+  font-size: clamp(1rem, 1.4vw, 1.22rem);
+  font-weight: 700;
+  line-height: 1.45;
+}
+
+.event-description {
+  max-width: 700px;
+  margin-bottom: 30px;
+
+  color: var(--text);
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem);
+  line-height: 1.6;
+}
+
+.event-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.event-button {
+  display: inline-flex;
+  min-height: 56px;
   align-items: center;
   justify-content: center;
 
-  gap: 5px;
+  padding: 14px 22px;
 
-  flex-wrap: nowrap;
-  transform: none;
+  border: 2px solid #123fa9;
+  border-radius: 4px;
+
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease,
+    transform 180ms ease;
 }
+
+.event-button-primary {
+  background: #123fa9;
+  color: var(--white);
+}
+
+.event-button-secondary {
+  background: var(--white);
+  color: #123fa9;
+}
+
+.event-button:hover,
+.event-button:focus-visible {
+  transform: translateY(-2px);
+}
+
+.event-button-primary:hover,
+.event-button-primary:focus-visible {
+  background: var(--white);
+  color: #123fa9;
+}
+
+.event-button-secondary:hover,
+.event-button-secondary:focus-visible {
+  background: #123fa9;
+  color: var(--white);
+}
+
+.event-button:focus-visible {
+  outline: 3px solid rgb(18 63 169 / 28%);
+  outline-offset: 4px;
+}
+
+.event-code {
+  margin: 16px 0 0;
+
+  color: #4a5364;
+  font-size: 0.92rem;
+}
+
+.event-code strong {
+  color: var(--navy);
+  letter-spacing: 0.04em;
+}
+
+.events-programme {
+  max-width: 1100px;
+  margin: 74px auto 0;
+  padding-top: 62px;
+
+  border-top: 1px solid #e3e7ee;
+}
+
+.events-programme h3 {
+  margin-bottom: 28px;
+
+  color: var(--ink);
+  font-size: clamp(2.6rem, 4vw, 4.8rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.events-programme .section-intro {
+  max-width: 1100px;
+  margin-bottom: 0;
+}
+
+/* Keeps all three social icons centred as one group. */
+.footer-socials .social-links {
+  gap: 8px;
+}
+
+@media (max-width: 900px) {
+  .events-section {
+    padding-block: 62px;
+  }
+
+  .event-feature {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .event-visual img {
+    width: min(100%, 360px);
+  }
+
+  .event-copy {
+    text-align: center;
+  }
+
+  .event-copy .section-kicker,
+  .event-copy h2 {
+    text-align: center;
+  }
+
+  .event-description {
+    margin-inline: auto;
+  }
+
+  .event-actions {
+    justify-content: center;
+  }
+
+  .events-programme {
+    margin-top: 58px;
+    padding-top: 50px;
+  }
+}
+
+@media (max-width: 620px) {
+  .event-visual img {
+    width: min(100%, 320px);
+    border-radius: 18px;
+  }
+
+  .event-actions {
+    flex-direction: column;
+  }
+
+  .event-button {
+    width: 100%;
+  }
+
+  .events-programme h3 {
+    font-size: clamp(2.4rem, 11vw, 3.3rem);
+  }
+}
+
+/* =========================================================
+   EVENTS
+   ========================================================= */
+
+.events-section {
+  padding-block: 76px;
+  background: var(--white);
+}
+
+.events-section > .container > h2 {
+  margin-bottom: 46px;
+}
+
+
+/* Main featured event layout */
+.featured-event {
+  display: grid;
+
+  grid-template-columns:
+    minmax(280px, 390px)
+    minmax(0, 1fr);
+
+  max-width: 1120px;
+
+  align-items: center;
+  gap: 64px;
+
+  margin-inline: auto;
+}
+
+
+/* -------------------------
+   Event poster
+   ------------------------- */
+
+.event-poster-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.event-poster {
+  display: block;
+
+  width: 100%;
+  max-width: 360px;
+  height: auto;
+
+  border-radius: 18px;
+
+  box-shadow:
+    0 18px 42px rgb(3 15 40 / 12%);
+
+  /* Smooth hover animation */
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease;
+
+  transform-origin: center;
+}
+
+/* Enlarges the event poster slightly on pointer devices */
+@media (hover: hover) and (pointer: fine) {
+  .event-poster:hover {
+    transform: scale(1.06);
+
+    box-shadow:
+      0 22px 46px rgb(3 15 40 / 18%);
+  }
+}
+
+
+/* -------------------------
+   Event information
+   ------------------------- */
+
+.event-content {
+  text-align: left;
+}
+
+.event-kicker {
+  margin-bottom: 12px;
+  text-align: left;
+}
+
+.event-content h3 {
+  margin: 0 0 18px;
+
+  color: var(--ink);
+
+  font-size: clamp(2.4rem, 4vw, 4rem);
+  font-weight: 400;
+  line-height: 1.12;
+}
+
+.event-date {
+  margin-bottom: 24px;
+
+  color: var(--ink);
+
+  font-size: clamp(1.15rem, 1.6vw, 1.4rem);
+  font-weight: 600;
+  line-height: 1.5;
+}
+
+.event-description {
+  max-width: 680px;
+
+  margin-bottom: 0;
+
+  color: var(--text);
+
+  font-size: clamp(1.08rem, 1.45vw, 1.3rem);
+  line-height: 1.6;
+}
+
+
+/* -------------------------
+   Event buttons
+   ------------------------- */
+
+.event-actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+
+  gap: 14px;
+
+  margin-top: 30px;
+}
+
+.event-button {
+  display: inline-flex;
+
+  min-height: 56px;
+
+  align-items: center;
+  justify-content: center;
+
+  padding: 14px 24px;
+
+  border: 2px solid #123fa9;
+  border-radius: 4px;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  text-decoration: none;
+
+  transition:
+    background-color 180ms ease,
+    color 180ms ease;
+}
+
+.event-button-primary {
+  background: #123fa9;
+  color: #ffffff;
+}
+
+.event-button-secondary {
+  background: #ffffff;
+  color: #123fa9;
+}
+
+.event-button-primary:hover,
+.event-button-primary:focus-visible {
+  background: #ffffff;
+  color: #123fa9;
+}
+
+.event-button-secondary:hover,
+.event-button-secondary:focus-visible {
+  background: #123fa9;
+  color: #ffffff;
+}
+
+
+/* -------------------------
+   Community code
+   ------------------------- */
+
+.event-code {
+  margin: 18px 0 0;
+
+  color: #4b5567;
+
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.event-code strong {
+  color: var(--navy);
+  letter-spacing: 0.04em;
+}
+
+
+/* =========================================================
+   EVENTS — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .events-section {
+    padding-block: 62px;
+  }
+
+  .featured-event {
+    grid-template-columns:
+      minmax(240px, 310px)
+      minmax(0, 1fr);
+
+    gap: 38px;
+  }
+
+  .event-content h3 {
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+  }
+}
+
+
+/* =========================================================
+   EVENTS — MOBILE
+   ========================================================= */
+
+@media (max-width: 700px) {
+  .events-section > .container > h2 {
+    margin-bottom: 34px;
+  }
+
+  .featured-event {
+    grid-template-columns: 1fr;
+
+    gap: 36px;
+  }
+
+  .event-poster {
+    max-width: 310px;
+  }
+
+  .event-content {
+    text-align: center;
+  }
+
+  .event-kicker {
+    text-align: center;
+  }
+
+  .event-description {
+    margin-inline: auto;
+  }
+
+  .event-actions {
+    flex-direction: column;
+  }
+
+  .event-button {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   PARTNERS
+   ========================================================= */
+
+.partners-section {
+  padding-block: 76px;
+
+  border-top: 1px solid #eef0f2;
+  border-bottom: 1px solid #eef0f2;
+
+  background: var(--white);
+}
+
+.partners-section h2 {
+  margin-bottom: 38px;
+}
+
+.partner-grid {
+  display: grid;
+
+  max-width: 850px;
+
+  margin-inline: auto;
+}
+
+.partner-card {
+  display: grid;
+
+  grid-template-columns:
+    minmax(190px, 260px)
+    1fr;
+
+  align-items: center;
+
+  gap: 48px;
+
+  padding: 38px 44px;
+
+  border: 1px solid var(--border);
+  border-radius: 24px;
+
+  background: #ffffff;
+  color: inherit;
+
+  text-align: left;
+  text-decoration: none;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+}
+
+.partner-logo-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.partner-logo {
+  display: block;
+
+  width: 100%;
+  max-width: 240px;
+  height: auto;
+
+  margin-inline: auto;
+
+  object-fit: contain;
+}
+
+.partner-type {
+  margin-bottom: 10px;
+
+  color: #0b43c8;
+
+  font-size: 0.82rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.partner-content h3 {
+  margin-bottom: 14px;
+
+  color: var(--ink);
+
+  font-size: clamp(1.7rem, 2.3vw, 2.3rem);
+}
+
+.partner-content p:last-child {
+  margin-bottom: 0;
+
+  color: #40495a;
+
+  font-size: 1.05rem;
+  line-height: 1.6;
+}
+
+
+/* Partner card hover effect on pointer devices. */
+@media (hover: hover) and (pointer: fine) {
+  .partner-card:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+      0 16px 32px rgba(3, 15, 40, 0.10);
+
+    border-color: #b9c0cc;
+  }
+}
+
+
