@@ -619,10 +619,10 @@ section {
 .team-grid {
   display: grid;
 
-  /* Two large team cards per row */
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  /* Three team members per row on large screens */
+  grid-template-columns: repeat(3, minmax(0, 1fr));
 
-  max-width: 980px;
+  max-width: 1180px;
   gap: 28px;
 
   margin: 48px auto 0;
@@ -659,6 +659,11 @@ a.team-card {
   text-decoration: none;
 }
 
+/* Centres the fifth team member until a sixth member is added */
+.team-card-centered {
+  grid-column: 2;
+}
+
 .team-photo {
   display: block;
 
@@ -673,30 +678,70 @@ a.team-card {
   object-position: center;
 }
 
+/* Compact call-to-action below the team */
 .team-card-cta {
-  /* Places the application card on its own row */
   grid-column: 1 / -1;
 
-  /* Keeps the card the same width as one team member card */
-  width: calc((100% - 28px) / 2);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+
+  width: min(100%, 540px);
+  min-height: 120px;
 
   justify-self: center;
 
-  margin-top: 14px;
-  border-color: #1747be;
-  background: linear-gradient(145deg, #f7faff 0%, #edf3ff 100%);
+  gap: 22px;
+
+  margin-top: 8px;
+  padding: 22px 30px;
+
+  border: 1px solid #1747be;
+  border-radius: 22px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f7faff 0%,
+      #edf3ff 100%
+    );
+
+  text-align: left;
 }
 
 .team-card-cta .team-initial {
+  width: 58px;
+  height: 58px;
+
+  flex: 0 0 58px;
+
+  margin: 0;
+
   border-color: #1747be;
+
   background: #1747be;
   color: var(--white);
+
+  font-size: 25px;
 }
 
-#team h2 {
-  max-width: 1080px;
-  margin-inline: auto;
-  font-size: clamp(2.5rem, 3.6vw, 4.2rem);
+.team-cta-copy {
+  min-width: 0;
+}
+
+.team-card-cta .team-cta-copy h3 {
+  margin: 0 0 5px;
+
+  font-size: 22px;
+}
+
+.team-card-cta .team-cta-copy p {
+  margin: 0;
+
+  color: #40495a;
+
+  font-size: 16px;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -708,6 +753,20 @@ a.team-card {
 
     box-shadow: 0 16px 32px rgba(3, 15, 40, 0.12);
     border-color: #b9c0cc;
+  }
+}
+
+@media (max-width: 1080px) {
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .team-card-centered {
+    grid-column: 1 / -1;
+
+    width: calc((100% - 28px) / 2);
+
+    justify-self: center;
   }
 }
 
@@ -754,6 +813,28 @@ a.team-card {
   .team-card {
     min-height: 220px;
     padding: 28px 20px;
+  }
+}
+
+@media (max-width: 700px) {
+  .team-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .team-card-centered {
+    grid-column: auto;
+
+    width: 100%;
+  }
+
+  .team-card-cta {
+    grid-column: auto;
+
+    width: 100%;
+    min-height: 112px;
+
+    margin-top: 6px;
+    padding: 20px 22px;
   }
 }
 
