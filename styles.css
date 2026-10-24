@@ -616,6 +616,164 @@ section {
   margin-bottom: 0;
 }
 
+/* =========================================================
+   PROJECTS & PROGRAMS
+   ========================================================= */
+
+.projects-section {
+  padding-block: 78px;
+}
+
+.projects-section h2 {
+  margin-bottom: 24px;
+}
+
+.projects-intro {
+  max-width: 900px;
+  margin-bottom: 0;
+}
+
+
+/* -------------------------
+   Project cards
+   ------------------------- */
+
+.project-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  max-width: 1180px;
+
+  gap: 24px;
+
+  margin: 48px auto 0;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+
+  min-height: 310px;
+
+  padding: 34px 30px;
+
+  border: 1px solid #d7d7d7;
+  border-radius: 24px;
+
+  background: #ffffff;
+
+  text-align: left;
+
+  transition:
+    transform 0.22s ease,
+    box-shadow 0.22s ease,
+    border-color 0.22s ease;
+
+  transform-origin: center;
+}
+
+.project-card-label {
+  margin: 0 0 16px;
+
+  color: #0b43c8;
+
+  font-size: 0.78rem;
+  font-weight: 700;
+
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.project-card h3 {
+  margin: 0 0 20px;
+
+  color: var(--ink);
+
+  font-size: clamp(1.7rem, 2.2vw, 2.25rem);
+  font-weight: 400;
+
+  line-height: 1.2;
+}
+
+.project-card > p:last-child {
+  margin: 0;
+
+  color: #40495a;
+
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* Same hover language as the rest of the website */
+@media (hover: hover) and (pointer: fine) {
+  .project-card:hover {
+    transform: translateY(-3px) scale(1.035);
+
+    box-shadow:
+      0 16px 32px rgb(3 15 40 / 10%);
+
+    border-color: #b9c0cc;
+  }
+}
+
+
+/* -------------------------
+   Project application
+   ------------------------- */
+
+.projects-action {
+  margin-top: 42px;
+}
+
+.projects-cta {
+  min-width: 340px;
+}
+
+
+/* =========================================================
+   PROJECTS — TABLET
+   ========================================================= */
+
+@media (max-width: 900px) {
+  .project-grid {
+    grid-template-columns: 1fr;
+
+    max-width: 680px;
+  }
+
+  .project-card {
+    min-height: auto;
+
+    text-align: center;
+  }
+}
+
+
+/* =========================================================
+   PROJECTS — MOBILE
+   ========================================================= */
+
+@media (max-width: 620px) {
+  .projects-section {
+    padding-block: 62px;
+  }
+
+  .project-grid {
+    margin-top: 36px;
+  }
+
+  .project-card {
+    padding: 28px 24px;
+  }
+
+  .projects-cta {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
 .team-grid {
   display: grid;
 
