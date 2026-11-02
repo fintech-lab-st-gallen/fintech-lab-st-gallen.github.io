@@ -2618,3 +2618,10 @@ a.team-card {
 
   background: #000000;
 }
+
+/* Vertically centres the social block against the taller contact column */
+@media (min-width: 1081px) {
+  .footer-socials {
+    transform: translateY(64px);
+  }
+}
