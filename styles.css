@@ -617,6 +617,34 @@ section {
 }
 
 /* =========================================================
+   MULTIPLE EVENTS
+   ========================================================= */
+
+.featured-event-secondary {
+  margin-top: 92px;
+  padding-top: 82px;
+
+  border-top: 1px solid #e3e6eb;
+}
+
+.event-poster-image {
+  aspect-ratio: auto;
+  object-fit: contain;
+
+  width: 100%;
+  max-width: 520px;
+
+  margin-inline: auto;
+
+  background: #000000;
+}
+
+.event-photo {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+/* =========================================================
    PROJECTS & PROGRAMS
    ========================================================= */
 
@@ -2069,6 +2097,10 @@ a.team-card {
   margin-bottom: 0;
 }
 
+.event-register-button {
+  margin-top: 14px;
+}
+
 /* Keeps all three social icons centred as one group. */
 .footer-socials .social-links {
   gap: 8px;
@@ -2127,6 +2159,17 @@ a.team-card {
 
   .events-programme h3 {
     font-size: clamp(2.4rem, 11vw, 3.3rem);
+  }
+}
+
+@media (max-width: 700px) {
+  .featured-event-secondary {
+    margin-top: 68px;
+    padding-top: 58px;
+  }
+
+  .event-register-button {
+    width: 100%;
   }
 }
 
@@ -2558,4 +2601,20 @@ a.team-card {
   .partner-content p {
     overflow-wrap: anywhere;
   }
+}
+
+/* Keeps the Binance artwork in its original square format */
+.event-photo.event-poster-image {
+  width: 100%;
+  max-width: 520px;
+  height: auto;
+
+  aspect-ratio: 1 / 1;
+
+  object-fit: contain;
+  object-position: center;
+
+  margin-inline: auto;
+
+  background: #000000;
 }
