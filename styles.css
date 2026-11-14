@@ -2625,3 +2625,13 @@ a.team-card {
     transform: translateY(64px);
   }
 }
+
+/* Keeps event photographs in their original proportions */
+.event-photo.event-photo-natural {
+  aspect-ratio: auto;
+
+  height: auto;
+
+  object-fit: contain;
+  object-position: center;
+}
