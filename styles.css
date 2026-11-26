@@ -2465,6 +2465,8 @@ a.team-card {
 
   max-width: 850px;
 
+  gap: 28px;
+
   margin-inline: auto;
 }
 
